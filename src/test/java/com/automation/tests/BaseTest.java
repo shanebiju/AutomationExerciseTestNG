@@ -12,6 +12,7 @@ public class BaseTest {
     AccountCreatedPage accountCreatedPage;
     LoginSignupPage loginSignupPage;
     AccountDeletedPage accountDeletedPage;
+    CartPage cartPage;
     @BeforeMethod
     public void setUp(){
         ConfigReader.initConfig();
@@ -21,6 +22,7 @@ public class BaseTest {
         accountCreatedPage=new AccountCreatedPage();
         loginSignupPage=new LoginSignupPage();
         accountDeletedPage=new AccountDeletedPage();
+        cartPage=new CartPage();
     }
 
     @AfterMethod

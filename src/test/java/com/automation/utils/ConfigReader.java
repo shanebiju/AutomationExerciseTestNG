@@ -17,4 +17,8 @@ public class ConfigReader {
     public static String getConfigValue(String key){
         return properties.getProperty(key);
     }
+
+    public static void setConfigValue(String key,String value){
+        properties.setProperty(key, value);
+    }
 }
