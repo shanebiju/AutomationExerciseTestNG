@@ -17,6 +17,8 @@ public class CartPage extends BasePage{
     @FindBy(xpath = "//a[@class='btn btn-default check_out']")
     WebElement proceedToCheckoutBtn;
 
+    public void proceedToCheckout(){proceedToCheckoutBtn.click();}
+
     public boolean isCartPageDisplayed(){
         try{
             return proceedToCheckoutBtn.isDisplayed();

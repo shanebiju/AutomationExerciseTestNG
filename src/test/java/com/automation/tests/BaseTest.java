@@ -13,6 +13,9 @@ public class BaseTest {
     LoginSignupPage loginSignupPage;
     AccountDeletedPage accountDeletedPage;
     CartPage cartPage;
+    CheckoutPage checkoutPage;
+    PaymentPage paymentPage;
+    PaymentDonePage paymentDonePage;
     @BeforeMethod
     public void setUp(){
         ConfigReader.initConfig();
@@ -23,6 +26,9 @@ public class BaseTest {
         loginSignupPage=new LoginSignupPage();
         accountDeletedPage=new AccountDeletedPage();
         cartPage=new CartPage();
+        checkoutPage=new CheckoutPage();
+        paymentPage=new PaymentPage();
+        paymentDonePage=new PaymentDonePage();
     }
 
     @AfterMethod

@@ -35,6 +35,14 @@ public class HomePage extends BasePage{
         return driver.findElement(By.xpath("//a[text()=' " + linkText + "']"));
     }
 
+    public boolean isLoggedIn(){
+        try{
+            return this.getLinkByText(ConfigReader.getConfigValue("navlink.logout")).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
     public  void addRecommendedItemsToCart(){
         // Scroll to the bottom of the page
         executor.executeScript("arguments[0].scrollIntoView(true);",recommendedItemsText);
