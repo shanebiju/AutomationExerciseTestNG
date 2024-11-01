@@ -28,6 +28,33 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//h2[text()='recommended items']")
     WebElement recommendedItemsText;
 
+    @FindBy(xpath = "//h2[text()='Full-Fledged practice website for Automation Engineers']")
+    WebElement homeTitle;
+
+    @FindBy(xpath = "//h2[text()='Subscription']")
+    WebElement subscriptionText;
+
+    @FindBy(id = "scrollUp")
+    WebElement scrollUpBtn;
+
+    public void scrollUp(){executor.executeScript("arguments[0].click()",scrollUpBtn);}
+
+    public boolean isSubscriptionVisible(){
+        try{
+            return subscriptionText.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean isHomePageDisplayed(){
+        try{
+            return homeTitle.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
     public void openWebsite(){
         driver.get(ConfigReader.getConfigValue("application.url"));
     }
@@ -41,6 +68,10 @@ public class HomePage extends BasePage{
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public void scrollToBottom(){
+        executor.executeScript("window.scrollTo(0, document.body.scrollHeight);");
     }
 
     public  void addRecommendedItemsToCart(){
