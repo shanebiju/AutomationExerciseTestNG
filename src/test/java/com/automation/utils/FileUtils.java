@@ -5,9 +5,10 @@ import java.util.Scanner;
 
 public class FileUtils {
     Scanner sc;
+    File f;
     public FileUtils(String path){
         try{
-            File f=new File(path);
+            f=new File(path);
             sc=new Scanner(f);
         } catch (Exception e) {
             System.out.println("unable to load file");
@@ -19,6 +20,11 @@ public class FileUtils {
         while (sc.hasNextLine()){
             fileContent=fileContent.concat(sc.nextLine());
         }
+        sc.close();
         return fileContent;
+    }
+
+    public boolean deleteFile(){
+        return f.delete();
     }
 }

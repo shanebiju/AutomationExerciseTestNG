@@ -6,4 +6,19 @@
             <class name="com.automation.tests.SignUpTest"/>
         </classes>
     </test>
+    <test name="AddRecommendedItemsToCartTest">
+        <classes>
+            <class name="com.automation.tests.AddRecommendedItemsToCartTest"/>
+        </classes>
+    </test>
+    <test name="DownloadInvoiceTest">
+        <classes>
+            <class name="com.automation.tests.DownloadInvoiceTest"/>
+        </classes>
+    </test>
+    <test name="ScrollUpTest">
+        <classes>
+            <class name="com.automation.tests.ScrollUpTest"/>
+        </classes>
+    </test>
 </suite>

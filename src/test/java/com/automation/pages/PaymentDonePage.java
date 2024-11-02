@@ -29,5 +29,6 @@ public class PaymentDonePage extends BasePage{
     public void printInvoiceData() throws FileNotFoundException {
         FileUtils fileUtils=new FileUtils(ConfigReader.getConfigValue("invoice.path"));
         System.out.println(fileUtils.getFileContent());
+        fileUtils.deleteFile();
     }
 }
