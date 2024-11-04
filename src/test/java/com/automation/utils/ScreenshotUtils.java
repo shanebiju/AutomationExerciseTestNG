@@ -7,6 +7,9 @@ import org.openqa.selenium.TakesScreenshot;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
 public class ScreenshotUtils {
@@ -25,9 +28,8 @@ public class ScreenshotUtils {
     public static String takeScreenshotAsFile() {
         TakesScreenshot ts = (TakesScreenshot) DriverManager.getDriver();
         File screenshot = ts.getScreenshotAs(OutputType.FILE);
-        Random rand = new Random(1000);
-        String screenshotFolderPath = System.getProperty("user.dir") + "/extentReport/";
-        String screenshotName = "screenshot" + rand.nextInt() + ".png";
+        String screenshotFolderPath ="extentReport/";
+        String screenshotName = "screenshot" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss")) + ".png";
         try {
             FileUtils.copyFile(screenshot, new File(screenshotFolderPath + screenshotName));
         } catch (IOException e) {

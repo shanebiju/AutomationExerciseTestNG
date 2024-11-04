@@ -7,11 +7,12 @@ import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import io.qameta.allure.Allure;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-public class ExtentReportListener implements ITestListener {
+public class ReportListener implements ITestListener {
     ExtentReports extentReports;
     ExtentSparkReporter extentSparkReporter;
     ExtentTest extentTest;
@@ -47,6 +48,7 @@ public class ExtentReportListener implements ITestListener {
         extentTest.addScreenCaptureFromPath(path);
         extentTest.log(Status.INFO, "Screenshot",
                 MediaEntityBuilder.createScreenCaptureFromPath(ScreenshotUtils.takeScreenshotAsFile()).build());
+        Allure.addAttachment("screenshot",ScreenshotUtils.takeScreenshotAsBytes());
     }
 
     public void onTestSkipped(ITestResult result) {
